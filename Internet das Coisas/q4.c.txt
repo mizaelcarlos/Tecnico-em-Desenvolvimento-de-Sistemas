@@ -1,0 +1,68 @@
+// Definição dos pinos
+int ledVerde = 8;
+int ledAmarelo = 9;
+int ledVermelho = 10;
+
+int botao = 2;
+
+// Variável que controla o turno
+int turno = 0;
+
+// Guarda último estado do botão
+int ultimoEstado = HIGH;
+
+void setup() {
+
+  pinMode(ledVerde, OUTPUT);
+  pinMode(ledAmarelo, OUTPUT);
+  pinMode(ledVermelho, OUTPUT);
+
+  // Ativa resistor interno
+  pinMode(botao, INPUT_PULLUP);
+
+  Serial.begin(9600);
+
+  atualizarTurno();
+}
+
+void loop() {
+
+  int estadoBotao = digitalRead(botao);
+
+  // Detecta clique (borda de descida)
+  if (estadoBotao == LOW && ultimoEstado == HIGH) {
+
+    turno++;
+
+    if (turno > 2) {
+      turno = 0;
+    }
+
+    atualizarTurno();
+
+    delay(300); // debounce simples
+  }
+
+  ultimoEstado = estadoBotao;
+}
+
+void atualizarTurno() {
+
+  // Apaga todos os LEDs
+  digitalWrite(ledVerde, LOW);
+  digitalWrite(ledAmarelo, LOW);
+  digitalWrite(ledVermelho, LOW);
+
+  if (turno == 0) {
+    digitalWrite(ledVerde, HIGH);
+    Serial.println("Turno 1 - MANHA (VERDE)");
+  }
+  else if (turno == 1) {
+    digitalWrite(ledAmarelo, HIGH);
+    Serial.println("Turno 2 - TARDE (AMARELO)");
+  }
+  else {
+    digitalWrite(ledVermelho, HIGH);
+    Serial.println("Turno 3 - NOITE (VERMELHO)");
+  }
+}

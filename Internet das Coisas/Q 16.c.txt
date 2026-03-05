@@ -1,0 +1,25 @@
+#include "BluetoothSerial.h"
+
+BluetoothSerial SerialBT;
+
+int ledPin = 2;  // GPIO do LED
+
+void setup() {
+  Serial.begin(115200);
+  SerialBT.begin("ESP32_LED"); // Nome do Bluetooth
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  if (SerialBT.available()) {
+    char comando = SerialBT.read();
+
+    if (comando == '1') {
+      digitalWrite(ledPin, HIGH);
+    }
+
+    if (comando == '0') {
+      digitalWrite(ledPin, LOW);
+    }
+  }
+}
