@@ -32,17 +32,17 @@
     </dl>
     <a href="https://www.google.com.br" target="_blank" title="Página do google">Google</a>
     <img src="img1.webp" alt="Homem Aranha" title="Homem Aranha" width="400px" height="300px"> -->
-    <table border="1">
+    <!-- <table border="1">
         <thead>
             <th colspan="2">Serviço/Produto</th>
-            <!-- <th>Descrição</th> -->
+            <!-- <th>Descrição</th> 
             <th>Preço (R$)</th>
             <th>Observações</th>
         </thead>
         <tbody>
             <tr>
                 <td colspan="2">Manicure</td>
-                <!-- <td>Cuidado com as suas unhas</td> -->
+                <!-- <td>Cuidado com as suas unhas</td> 
                 <td>80,00</td>
                 <td rowspan="2">Pagamento a vista</td>
             </tr>
@@ -50,9 +50,43 @@
                 <td>Selagem</td>
                 <td>Alisando seus cabelos</td>
                 <td>250,00</td>
-                <!-- <td>Pagamento a vista</td> -->
+                 <td>Pagamento a vista</td> 
             </tr>
         </tbody>
-    </table>
+    </table> -->
+    <form action="enviar.php" method="get" enctype="multipart/form-data" autocomplete="on">
+        <!-- <label for="">Nome</label>
+        <input type="text" name="nome" id="nome" required>
+        <label for="">Data de nascimento</label>
+        <input type="date" name="data_nascimento" id="data_nascimento">
+        <label for="">Foto</label>
+        <input type="file" name="foto" id="foto"> -->
+        
+        <input type="text" name="usuario" id="usuario" maxlength="8" placeholder="Usuário" autofocus >
+        <br>
+        <label for="">Senha</label>
+        <input type="password" name="senha" id="senha" minlength="8" maxlength="16" disabled>
+        <br>
+        <label for="">lembrar-me</label>
+        <input type="checkbox" name="lembrar" id="lembrar">
+        <br>
+        <label for="">Nível</label>
+        <br>
+        <label for="">Admin</label>
+        <input type="radio" name="nivel_acesso" id="nivel_acesso">
+        <label for="">Assistente</label>
+        <input type="radio" name="nivel_acesso" id="nivel_acesso">
+        <br>
+        <label for="">Zoom</label>
+        <input type="range" name="precisao" id="precisao" min="1" max="10">
+        <br>
+        <label for="">Horário</label>
+        <input type="time" name="horario" id="horario">
+        <label for="">Cor</label>
+        <input type="color" name="cor" id="cor">
+        <label for="">Mensagem</label>
+        <textarea name="mensagem" id="mensagem" rows="10" cols="20"></textarea>
+        <button type="submit">Salvar</button>
+    </form>
 </body>
 </html>
