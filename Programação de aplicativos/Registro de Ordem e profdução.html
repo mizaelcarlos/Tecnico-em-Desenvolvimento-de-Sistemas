@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Ordem de Produção</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f4f4;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        form {
+            background: #fff;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+        }
+        
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        
+        .checkbox-group label {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        
+        button {
+            margin-top: 15px;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            color: white;
+        }
+        
+        .enviar {
+            background: green;
+        }
+        
+        .limpar {
+            background: orange;
+        }
+        
+        .imprimir {
+            background: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Registro de Ordem de Produção</h1>
+
+    <form action="enviar.php" method="GET" enctype="multipart/form-data">
+
+        <!-- 1 -->
+        <label>Nome do operador:</label>
+        <input type="text" name="nome" required>
+
+        <!-- 2 -->
+        <label>Senha:</label>
+        <input type="password" name="senha" required>
+
+        <!-- 3 -->
+        <label>Email do supervisor:</label>
+        <input type="email" name="email" required>
+
+        <!-- 4 -->
+        <label>Telefone:</label>
+        <input type="tel" name="telefone">
+
+        <!-- 5 -->
+        <label>Link do manual:</label>
+        <input type="url" name="manual">
+
+        <!-- 6 -->
+        <label>Código da peça:</label>
+        <input type="search" name="codigo">
+
+        <!-- 7 -->
+        <label>Data do turno:</label>
+        <input type="date" name="data">
+
+        <!-- 8 -->
+        <label>Hora início:</label>
+        <input type="time" name="inicio">
+
+        <!-- 9 -->
+        <label>Hora fim:</label>
+        <input type="time" name="fim">
+
+        <!-- 10 -->
+        <label>Quantidade produzida:</label>
+        <input type="number" name="quantidade" min="0">
+
+        <!-- 11 -->
+        <label>Turno:</label>
+        <select name="turno">
+    <option>Manhã</option>
+    <option>Tarde</option>
+    <option>Noite</option>
+</select>
+
+        <!-- 12 -->
+        <label>EPIs utilizados:</label>
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="epi[]" value="capacete"> Capacete</label>
+            <label><input type="checkbox" name="epi[]" value="luvas"> Luvas</label>
+            <label><input type="checkbox" name="epi[]" value="oculos"> Óculos</label>
+            <label><input type="checkbox" name="epi[]" value="protetor"> Protetor auditivo</label>
+            <label><input type="checkbox" name="epi[]" value="botina"> Botina</label>
+        </div>
+
+        <!-- 13 -->
+        <label>Nível de qualidade (1 a 10):</label>
+        <input type="range" name="qualidade" min="1" max="10">
+
+        <!-- 14 -->
+        <label>Cor do lote:</label>
+        <input type="color" name="cor">
+
+        <!-- 15 -->
+        <label>Foto da peça:</label>
+        <input type="file" name="foto">
+
+        <!-- 16 -->
+        <input type="hidden" name="codigo_interno" value="OP12345">
+
+        <!-- 17 -->
+        <button type="submit" class="enviar">Enviar Registro</button>
+
+        <!-- 18 -->
+        <button type="reset" class="limpar">Limpar</button>
+
+        <!-- 19 -->
+        <button type="button" class="imprimir" onclick="window.print()">Imprimir</button>
+
+    </form>
+
+</body>
+
+</html>
