@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Cadastrar Produção diária</h1>
+    <form action="q6.php" method="get">
+        <label for="">Data: </label>
+        <input type="date" name="data" id="data">
+        <br>
+        <label for="">Nome do operador: </label>
+        <input type="text" name="nome_operador" id="nome_operador">
+        <br>
+        <label for="">Quantidade produzida: </label>
+        <input type="number" name="quantidade_produzida" id="quantidade_produzida" min="1">
+        <br>
+        <label for="">Turno</label>
+        <select name="turno" id="turno">
+            <option value="manhã">Manhã</option>
+            <option value="tarde">Tarde</option>
+            <option value="noite">Noite</option>
+        </select>
+        <br>
+        <label for="">Observações</label>
+        <br>
+        <textarea name="observacoes" id="observacoes" cols="30" rows="10"></textarea>
+        <br>
+        <button type="submit">Salvar</button>
+        <button type="reset">Limpar</button>
+        
+    </form>
+</body>
+</html>
