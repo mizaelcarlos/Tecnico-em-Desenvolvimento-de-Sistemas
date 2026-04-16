@@ -1,0 +1,83 @@
+<?php
+include 'conexao.php';
+
+$id = $_GET['id'];
+$sql = 'select * from solicitante where  id = ' . $id;
+$resultado = mysqli_query($conexao, $sql);
+$dado = mysqli_fetch_assoc($resultado);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="atualizar.php" method="POST">
+        <label for="">Nome do solicitante:</label>
+        <input type="text" name="nome_solicitante" id="nome_solicitante" value="<?php echo $dado['nome']; ?>">
+        <br>
+        <label for="">Setor:</label>
+        <select name="setor" id="setor">
+            <option value="<?php echo $dado['setor']; ?>" selected>
+                <?php
+                switch ($dado['setor']) {
+                    case 1:
+                        echo 'Administração';
+                        break;
+                    case 2:
+                        echo 'Departamento Pessoal';
+                        break;
+                    case 3:
+                        echo 'RH';
+                        break;
+                    case 4:
+                        echo 'TI';
+                        break;
+                }
+                ?>
+            </option>
+            <option value="1">Administração</option>
+            <option value="2">Departamento Pessoal</option>
+            <option value="3">RH</option>
+            <option value="4">TI</option>
+        </select>
+        <br>
+        <label for="">Material solicitado</label>
+        <input type="text" name="material_solicitado" id="material_solicitado" value="<?php echo $dado['material_solicitado']; ?>">
+        <br>
+        <label for="">Quantidade</label>
+        <input type="number" min="1" name="quantidade" id="quantidade" value="<?php echo $dado['quantidade']; ?>">
+        <br>
+        <label for="">Prioridade</label>
+        <select name="prioridade" id="prioridade">
+            <option value="<?php echo $dado['prioridade']; ?>" selected>
+                <?php
+                switch ($dado['prioridade']) {
+                    case 1:
+                        echo 'Baixa';
+                        break;
+                    case 2:
+                        echo 'Média';
+                        break;
+                    case 3:
+                        echo 'Alta';
+                        break;
+                }
+                ?>
+
+            <option value="1">baixa</option>
+            <option value="2">média</option>
+            <option value="3">alta</option>
+        </select>
+        <br>
+        <input type="hidden" name="id" value="<?php echo $dado['id']; ?>">
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+
+</html>
