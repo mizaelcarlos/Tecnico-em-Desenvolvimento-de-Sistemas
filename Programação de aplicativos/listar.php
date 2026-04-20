@@ -71,6 +71,10 @@ $dados = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
                     </td>
                     <td>
                         <a href="editar.php?id=<?php echo $linha['id']; ?>">Editar</a>
+                        <form action="excluir.php" method="post">
+                            <input type="hidden" name="id" value="<?php echo $linha['id']; ?>">
+                            <button type="submit">Excluir</button>
+                        </form>
                     </td>
                 </tr>
             <?php
