@@ -5,6 +5,10 @@ $id = $_GET['id'];
 $sql = 'select * from solicitante where  id = ' . $id;
 $resultado = mysqli_query($conexao, $sql);
 $dado = mysqli_fetch_assoc($resultado);
+
+$sql2 = 'select * from setor';
+$resultado = mysqli_query($conexao, $sql2);
+$setores = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -23,28 +27,15 @@ $dado = mysqli_fetch_assoc($resultado);
         <br>
         <label for="">Setor:</label>
         <select name="setor" id="setor">
-            <option value="<?php echo $dado['setor']; ?>" selected>
-                <?php
-                switch ($dado['setor']) {
-                    case 1:
-                        echo 'Administração';
-                        break;
-                    case 2:
-                        echo 'Departamento Pessoal';
-                        break;
-                    case 3:
-                        echo 'RH';
-                        break;
-                    case 4:
-                        echo 'TI';
-                        break;
-                }
-                ?>
+            <option value="<?php echo $dado['setor_id']; ?>" selected>
             </option>
-            <option value="1">Administração</option>
-            <option value="2">Departamento Pessoal</option>
-            <option value="3">RH</option>
-            <option value="4">TI</option>
+            <?php
+            foreach ($setores as $setor) {
+            ?>
+                <option value="<?php echo $setor['id'] ?>"><?php echo $setor['nome'] ?></option>
+            <?php
+            }
+            ?>
         </select>
         <br>
         <label for="">Material solicitado</label>
