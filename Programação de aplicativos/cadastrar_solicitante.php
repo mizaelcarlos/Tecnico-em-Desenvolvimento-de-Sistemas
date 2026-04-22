@@ -1,10 +1,20 @@
+<?php
+include 'conexao.php';
+
+$sql = 'select * from setor';
+$resultado = mysqli_query($conexao, $sql);
+$setores = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h1>Cadastrar solicitante</h1>
     <form action="cadastrar.php" method="POST">
@@ -13,10 +23,13 @@
         <br>
         <label for="">Setor:</label>
         <select name="setor" id="setor">
-            <option value="1">Administração</option>
-            <option value="2">Departamento Pessoal</option>
-            <option value="3">RH</option>
-            <option value="4">TI</option>
+            <?php
+            foreach ($setores as $setor) {
+            ?>
+                <option value="<?php echo $setor['id'] ?>"><?php echo $setor['nome'] ?></option>
+            <?php
+            }
+            ?>
         </select>
         <br>
         <label for="">Material solicitado</label>
@@ -35,4 +48,5 @@
         <button type="submit">Salvar</button>
     </form>
 </body>
+
 </html>
