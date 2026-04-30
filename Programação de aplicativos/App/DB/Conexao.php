@@ -22,6 +22,6 @@ class Conexao
         if (self::$instancia === null) {
             self::$instancia = new Conexao();
         }
-        return self::$instancia;
+        return self::$instancia->pdo; //TODO
     }
 }
