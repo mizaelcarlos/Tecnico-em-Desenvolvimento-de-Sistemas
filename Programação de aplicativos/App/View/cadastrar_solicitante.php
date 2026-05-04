@@ -21,7 +21,7 @@ $setores = $setorDAO->listar();
 
 <body>
     <h1>Cadastrar solicitante</h1>
-    <form action="cadastrar.php" method="POST">
+    <form action="salvar_solicitante.php" method="POST">
         <label for="">Nome do solicitante:</label>
         <input type="text" name="nome_solicitante" id="nome_solicitante">
         <br>

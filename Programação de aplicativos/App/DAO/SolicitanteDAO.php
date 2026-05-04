@@ -6,7 +6,7 @@ use App\DB\Conexao;
 use App\Model\Solicitante;
 use PDO;
 
-class SocitanteDAO{
+class SolicitanteDAO{
     private PDO $pdo;
     public function __construct(){
         $this->pdo = Conexao::getInstance();
