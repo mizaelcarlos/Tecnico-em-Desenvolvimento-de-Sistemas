@@ -14,8 +14,8 @@ $solicitante->setMaterialSolicitado($_POST['material_solicitado']);
 $solicitante->setQuantidade($_POST['quantidade']);
 $solicitante->setPrioridade($_POST['prioridade']);
 
-$solicitanteDado = new SolicitanteDAO();
-$solicitanteDado->inserir($solicitante);
+$solicitanteDAO = new SolicitanteDAO();
+$solicitanteDAO->inserir($solicitante);
 
 // header("Location: listar_solicitante.php");
 // exit();
