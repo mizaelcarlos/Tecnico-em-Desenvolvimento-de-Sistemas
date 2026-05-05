@@ -13,6 +13,7 @@ $setores = $setorDAO->listar();
 $id = $_GET['id'];
 $solicitanteDAO = new SolicitanteDAO();
 $dado = $solicitanteDAO->consultar($id);
+$setor = $setorDAO->consultar($dado['setor']);
 
 ?>
 
@@ -26,13 +27,14 @@ $dado = $solicitanteDAO->consultar($id);
 </head>
 
 <body>
-    <form action="atualizar.php" method="POST">
+    <form action="atualizar_solicitante.php" method="POST">
         <label for="">Nome do solicitante:</label>
         <input type="text" name="nome_solicitante" id="nome_solicitante" value="<?php echo $dado['nome']; ?>">
         <br>
         <label for="">Setor:</label>
         <select name="setor" id="setor">
-            <option value="<?php echo $dado['setor_id']; ?>" selected>
+            <option value="<?php echo $dado['setor_id']; ?>" selected>  
+                <?php echo $setor['nome']; ?>  
             </option>
             <?php
             foreach ($setores as $setor) {
