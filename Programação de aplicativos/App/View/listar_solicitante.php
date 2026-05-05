@@ -72,8 +72,8 @@ $dados = $solicitanteDAO->listar();
                         ?>
                     </td>
                     <td>
-                        <a href="editar.php?id=<?php echo $linha['id']; ?>">Editar</a>
-                        <form action="excluir.php" method="post">
+                        <a href="editar_solicitante.php?id=<?php echo $linha['id']; ?>">Editar</a>
+                        <form action="excluir_solicitante.php" method="post">
                             <input type="hidden" name="id" value="<?php echo $linha['id']; ?>">
                             <button type="submit">Excluir</button>
                         </form>

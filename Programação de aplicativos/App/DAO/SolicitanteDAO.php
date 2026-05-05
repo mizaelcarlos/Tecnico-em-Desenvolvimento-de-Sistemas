@@ -53,4 +53,12 @@ class SolicitanteDAO{
         return $execucao->execute([$id]);
 
     }
+
+    public function consultar(int $id){
+        $sql = 'select * from solicitante where id = ?'; 
+        $execucao = $this->pdo->prepare($sql);
+        $execucao->execute([$id]);
+        return $execucao->fetch(PDO::FETCH_ASSOC);
+
+    }
 }
