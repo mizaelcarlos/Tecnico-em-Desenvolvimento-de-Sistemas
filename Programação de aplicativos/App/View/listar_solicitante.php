@@ -21,7 +21,7 @@ $dados = $solicitanteDAO->listar();
 
 <body>
     <h1>Listagem de solicitante</h1>
-    <a href="q4.html">Cadastrar</a>
+    <a href="cadastrar_solicitante.php">Cadastrar</a>
     <table border="1">
         <thead>
             <th>Nome</th>
@@ -38,22 +38,7 @@ $dados = $solicitanteDAO->listar();
             ?>
                 <tr>
                     <td><?php echo $linha['nome']; ?></td>
-                    <td><?php
-                        switch ($linha['setor']) {
-                            case 1:
-                                echo 'Administração';
-                                break;
-                            case 2:
-                                echo 'Departamento Pessoal';
-                                break;
-                            case 3:
-                                echo 'RH';
-                                break;
-                            case 4:
-                                echo 'TI';
-                                break;
-                        }
-                        ?></td>
+                    <td><?php echo $linha['setor']; ?></td>
                     <td><?php echo $linha['material_solicitado']; ?></td>
                     <td><?php echo $linha['quantidade']; ?></td>
                     <td>
